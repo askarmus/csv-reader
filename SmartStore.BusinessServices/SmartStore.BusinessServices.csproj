@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="3.1.5" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SmartStore.Core\SmartStore.Core.csproj" />
+    <ProjectReference Include="..\SmartStore.DataAccess\SmartStore.DataAccess.csproj" />
+    <ProjectReference Include="..\SmartStore.Model\SmartStore.Model.csproj" />
+  </ItemGroup>
+
+</Project>
