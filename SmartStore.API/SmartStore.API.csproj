@@ -32,10 +32,4 @@
     <ProjectReference Include="..\SmartStore.Core\SmartStore.Core.csproj" />
     <ProjectReference Include="..\SmartStore.DataAccess\SmartStore.DataAccess.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Mapping\" />
-  </ItemGroup>
-
-
 </Project>

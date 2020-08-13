@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SmartStore.DataAccess.Entity
 {
     public class Product : BaseEntity
     {
+        
         public int CategoryID { get; set; }
         public  Category Category { get; set; }
 

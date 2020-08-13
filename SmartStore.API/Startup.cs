@@ -17,6 +17,8 @@ using SmartStore.DataAccess.Entity;
 using SmartStore.Core;
 using SmartStore.BusinessServices;
 using SmartStore.API.Middleware;
+using AutoMapper;
+using SmartStore.Services;
 
 namespace SmartStore.API
 {
@@ -41,6 +43,9 @@ namespace SmartStore.API
             {
                 opt.Filters.Add(typeof(ValidatorActionFilter));
             }).AddFluentValidation(fvc => fvc.RegisterValidatorsFromAssemblyContaining<Startup>());
+
+
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddIdentity<AppUser, IdentityRole>(options =>
             {
@@ -85,6 +90,7 @@ namespace SmartStore.API
 
             // configure DI for application services
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IProductsService, ProductsService>();
 
             services.AddSwaggerGen(swagger =>
             {
@@ -133,6 +139,7 @@ namespace SmartStore.API
                 .AllowAnyHeader()
                 .AllowCredentials());
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseSwagger();
