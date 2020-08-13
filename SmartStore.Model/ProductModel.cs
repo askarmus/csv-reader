@@ -16,5 +16,6 @@ namespace SmartStore.Model
         public string Tags { get; set; }
         public string Barcode { get; set; }
         public string Supplier { get; set; }
+       
     }
 }

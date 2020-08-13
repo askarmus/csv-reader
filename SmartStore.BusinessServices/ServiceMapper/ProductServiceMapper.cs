@@ -25,5 +25,25 @@ namespace SmartStore.BusinessServices.ServiceMapper
 
             return model;
         }
+
+
+        public static ProductRecordModel ToModel(ProductRecord productRecord)
+        {
+            var model = new ProductRecordModel();
+
+            model.Description = productRecord.Description;
+            //model.Barcode = productRecord.Barcode;
+            //model.Cost = productRecord.Cost;
+            //model.Discount = productRecord.Discount;
+            //model.isFeatured = productRecord.isFeatured;
+            //model.Price = productRecord.Price;
+            //model.SKU = productRecord.SKU;
+            //model.Supplier = productRecord.Supplier;
+            //model.Tags = productRecord.Tags;
+            //model.ThumbnailPictureID = productRecord.ThumbnailPictureID;
+
+            return model;
+        }
+
     }
 }

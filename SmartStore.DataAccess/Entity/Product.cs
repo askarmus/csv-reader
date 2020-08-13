@@ -20,7 +20,6 @@ namespace SmartStore.DataAccess.Entity
         public string Tags { get; set; }
         public string Barcode { get; set; }
         public string Supplier { get; set; }
-
         public  List<ProductPicture> ProductPictures { get; set; }
 
         public  List<ProductRecord> ProductRecords { get; set; }

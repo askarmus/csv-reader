@@ -11,10 +11,10 @@ namespace SmartStore.Services
     public interface IProductsService
     {
         Task<QueryResult<ProductModel>> GetAllProductsAsync(Query query);
+        Task<ProductRecordModel> GetProductRecordByIDAsync(int ID);
     }
     public class ProductsService: IProductsService
     {
-
         private FleetContext _context;
          
         public ProductsService(FleetContext context)
@@ -31,6 +31,7 @@ namespace SmartStore.Services
                                     .Take(query.Limit)
                                     .Skip((query.Offset - 1) * query.Limit)
                                     .ToListAsync();
+
             var productModels = products.Select(s => ProductServiceMapper.ToModel(s)).ToList();
 
             return new QueryResult<ProductModel>
@@ -127,12 +128,11 @@ namespace SmartStore.Services
         //    return IDs.Select(id => context.Products.Find(id)).Where(x=>!x.IsDeleted && !x.Category.IsDeleted).OrderBy(x=>x.ID).ToList();
         //}
 
-        //public ProductRecord GetProductRecordByID(int ID)
-        //{
-        //    var productRecord = context.ProductRecords.Find(ID);
-
-        //    return productRecord != null && !productRecord.IsDeleted ? productRecord : null;
-        //}
+        public async Task<ProductRecordModel> GetProductRecordByIDAsync(int ID)
+        {
+            var productRecord = await _context.ProductRecords.FindAsync(ID);
+            return productRecord != null && !productRecord.IsDeleted ? ProductServiceMapper.ToModel( productRecord) : null;
+        }
 
         //public decimal GetMaxProductPrice()
         //{

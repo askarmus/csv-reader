@@ -34,5 +34,13 @@ namespace SmartStore.API.Controllers
             var result = await _productService.GetAllProductsAsync(query);
             return Ok(result);
         }
+
+        [HttpGet("GetProductRecordByID/{ID}")]
+        public async Task<IActionResult> GetProductRecordByID([FromQuery] int ID)
+        {
+            var result = await _productService.GetProductRecordByIDAsync(ID);
+
+            return Ok(result);
+        }
     }
 }
