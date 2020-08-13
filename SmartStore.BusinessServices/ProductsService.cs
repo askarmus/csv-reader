@@ -28,6 +28,8 @@ namespace SmartStore.Services
            var products = await _context.Products
                                     .Where(x => !x.IsDeleted && !x.Category.IsDeleted)
                                     .OrderBy(x => x.ID)
+                                    .Take(query.Limit)
+                                    .Skip((query.Offset - 1) * query.Limit)
                                     .ToListAsync();
             var productModels = products.Select(s => ProductServiceMapper.ToModel(s)).ToList();
 
