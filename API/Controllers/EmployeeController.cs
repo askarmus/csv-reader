@@ -35,14 +35,14 @@ namespace API.Controllers
         [HttpGet("SearchEmployee")]
         public IActionResult SearchEmployee([FromQuery] EmployeeSearchQuery query)
         {
-            if ( string.IsNullOrEmpty(query.FirstName) && string.IsNullOrEmpty(query.Country) && string.IsNullOrEmpty(query.LastName))
+            if (!string.IsNullOrEmpty(query.FirstName) || !string.IsNullOrEmpty(query.Country) || !string.IsNullOrEmpty(query.LastName))
             {
                 var result = _employeeService.SearchEmployee(query);
 
                 if (result.Count > 0)
                     return Ok(result);
 
-                return NotFound("No recors found in search criteria");
+                return NotFound("No record found in this  search criteria");
             }
 
             return BadRequest("Please provide minimum one search tearm");

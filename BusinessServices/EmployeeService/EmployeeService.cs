@@ -34,7 +34,7 @@ namespace Services
 
         private List<CurrencyModel>  GetCurrencyTable()
         {
-            using (var reader = new StreamReader(@"..\data\currency.csv"))
+            using (var reader = new StreamReader(@"..\api\data\currency.csv"))
 
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
@@ -48,7 +48,7 @@ namespace Services
         public List<EmployeeModel> SearchEmployee(EmployeeSearchQuery query)
         {
             var currencyTable = GetCurrencyTable();
-            using (var reader = new StreamReader(@"..\data\employee.csv"))
+            using (var reader = new StreamReader(@"..\api\data\employee.csv"))
 
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
